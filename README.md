@@ -3,6 +3,7 @@
 A modern, unified desktop and web frontend for **Sonarr**, **Radarr**, **SABnzbd**, and **qBittorrent** — with a built-in **Discover** feature powered by TMDB.
 
 Built with Next.js 15, React 19, Electron, and TailwindCSS 4.
+<img width="2083" height="1225" alt="image" src="https://github.com/user-attachments/assets/0856f617-4062-467a-83cf-81fc11a01d76" />
 
 ---
 
