@@ -1,0 +1,16 @@
+services:
+  replacarr:
+    build: .
+    image: replacarr:latest
+    container_name: replacarr
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=UTC
+      - SETTINGS_FILE=/data/settings.json
+    volumes:
+      - replacarr_data:/data
+
+volumes:
+  replacarr_data:

@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #05050f;
+  --color-bg-panel: #0d0d1a;
+  --color-bg-card: #111122;
+  --color-bg-card-hover: #161630;
+  --color-bg-input: #0a0a18;
+
+  --color-border: #1e1e3a;
+  --color-border-bright: #2e2e5a;
+
+  --color-accent: #7c3aed;
+  --color-accent-bright: #9f5fff;
+  --color-accent-glow: #7c3aed44;
+
+  --color-cyan: #06b6d4;
+  --color-cyan-bright: #22d3ee;
+  --color-cyan-glow: #06b6d422;
+
+  --color-sonarr: #4f8ef7;
+  --color-sonarr-glow: #4f8ef722;
+
+  --color-radarr: #f97316;
+  --color-radarr-glow: #f9731622;
+
+  --color-sabnzbd: #eab308;
+  --color-sabnzbd-glow: #eab30822;
+
+  --color-qbittorrent: #6dba4a;
+  --color-qbittorrent-glow: #6dba4a22;
+
+  --color-tmdb: #01d277;
+  --color-tmdb-glow: #01d27722;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-muted: #6b7280;
+
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #475569;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--color-border);
+}
+
+html,
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  height: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-panel);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-bright);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Glass panel effect */
+.glass {
+  background: rgba(13, 13, 26, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Glow utilities */
+.glow-accent {
+  box-shadow: 0 0 20px var(--color-accent-glow), 0 0 40px var(--color-accent-glow);
+}
+.glow-cyan {
+  box-shadow: 0 0 20px var(--color-cyan-glow), 0 0 40px var(--color-cyan-glow);
+}
+.glow-sonarr {
+  box-shadow: 0 0 20px var(--color-sonarr-glow), 0 0 40px var(--color-sonarr-glow);
+}
+.glow-radarr {
+  box-shadow: 0 0 20px var(--color-radarr-glow), 0 0 40px var(--color-radarr-glow);
+}
+.glow-sabnzbd {
+  box-shadow: 0 0 20px var(--color-sabnzbd-glow), 0 0 40px var(--color-sabnzbd-glow);
+}
+.glow-qbittorrent {
+  box-shadow: 0 0 20px var(--color-qbittorrent-glow), 0 0 40px var(--color-qbittorrent-glow);
+}
+
+/* Text glow */
+.text-glow-accent {
+  text-shadow: 0 0 10px var(--color-accent-bright);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 10px var(--color-cyan);
+}
+
+/* Animated gradient border */
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--color-accent); }
+  50% { border-color: var(--color-cyan); }
+}
+
+/* Grid pattern background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scan line effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+}
+
+/* Status pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Sidebar nav active state */
+.nav-item-active {
+  background: linear-gradient(90deg, var(--color-accent-glow), transparent);
+  border-left: 2px solid var(--color-accent-bright);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-card) 25%,
+    var(--color-bg-card-hover) 50%,
+    var(--color-bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}

@@ -1,0 +1,7 @@
+node_modules
+.next
+dist-electron
+dist-installer
+.env.local
+*.pem
+.DS_Store
